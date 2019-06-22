@@ -6,7 +6,7 @@ var UserController = require('./usercontroller');
 var ProductController = require('./productcontroller');
 var Cors = require('cors');
 // const MONGOURL = "mongodb://localhost:27017/coerproject1";
-const MONGOURL= "mongodb://test:test1234@ds117729.mlab.com:17729/coerproject"
+const MONGOURL= "mongodb://test:test1234@ds117729.mlab.com:17729/coerproject1"
 const PORT = process.env.PORT || 7000;
 
 server.use(Cors());
