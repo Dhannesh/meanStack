@@ -41,6 +41,7 @@ exports.allProducts = function(req,res){
 }
 
 exports.getProduct = function(req,res){
+    console.log("product id",req.params.id);
     ProductModel.findOne({productid:req.params.id})
     .then(function(productFound){
         if(productFound){

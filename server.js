@@ -4,11 +4,13 @@ var BodyParser = require('body-parser');
 var server = express();
 var UserController = require('./usercontroller'); 
 var ProductController = require('./productcontroller');
+var CartController = require('./cartcontroller');
+var OrderController = require('./ordercontroller');
 var Cors = require('cors');
 var path = require('path')
 
-// const MONGOURL = "mongodb://localhost:27017/coerproject1";
-const MONGOURL= "mongodb://test:test1234@ds117729.mlab.com:17729/coerproject"
+//  const MONGOURL = "mongodb://localhost:27017/coerproject1";
+const MONGOURL= "mongodb://test:test1234@ds117729.mlab.com:17729/dhaneshcoerproject"
 const PORT = process.env.PORT || 7000;
 
 server.use(Cors());
@@ -29,9 +31,15 @@ server.listen(PORT,function(){
     server.post('/api/changePassword',UserController.changePassword);
     server.post('/api/remove',UserController.deleteAccount);
 
-    server.post('/api/addProduct',ProductController.addProduct);
+    server.post('/api/addproduct',ProductController.addProduct);
     server.get('/api/allproducts',ProductController.allProducts);
     server.get('/api/getproduct/:id',ProductController.getProduct);
+    server.post('/api/addtocart',CartController.addToCart);
+    server.post('/api/allcartitems',CartController.cartItems);
+    server.post('/api/removefromcart',CartController.removeItem);
+    server.post('/api/clearcart',CartController.clearCart);
+    server.post('/api/createorder',OrderController.createOrder);
+    server.post('/api/orderdetails',OrderController.getOrderDetails);
     server.get('/*',function(req,res){
         res.sendFile(path.join(__dirname + 'dist/ang1/index.html'));
     })
