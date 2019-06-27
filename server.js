@@ -10,7 +10,7 @@ var Cors = require('cors');
 var path = require('path')
 
 //  const MONGOURL = "mongodb://localhost:27017/coerproject1";
-const MONGOURL= "mongodb://test:test1234@ds117729.mlab.com:17729/dhaneshcoerproject"
+const MONGOURL= "mongodb://test:test1234@ds117729.mlab.com:17729/coerproject"
 const PORT = process.env.PORT || 7000;
 
 server.use(Cors());
